@@ -1,12 +1,20 @@
-document.getElementById("generar").addEventListener("click", function () {
-    const select = document.getElementById("regiones");
-    const regionesSeleccionadas = [];
+document.getElementById('generar').addEventListener('click', function () {
+    const select = document.getElementById('regiones');
+    const regionesSeleccionadas = Array.from(select.selectedOptions).map(option => option.value);
   
-    for (let i = 0; i < select.options.length; i++) {
-      if (select.options[i].selected) {
-        regionesSeleccionadas.push(select.options[i].value);
-      }
-    }
+    // Cargar el archivo JSON
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        // Filtrar solo las regiones seleccionadas
+        const regionesFiltradas = data.filter(regionData => regionesSeleccionadas.includes(regionData.region));
   
-    console.log("Regiones seleccionadas:", regionesSeleccionadas);
+        // Mostrar en consola para verificar
+        console.log("Regiones seleccionadas:", regionesSeleccionadas);
+        console.log("Datos filtrados:", regionesFiltradas);
+      })
+      .catch(error => {
+        console.error('Error al cargar el archivo data.json:', error);
+      });
   });
+  
