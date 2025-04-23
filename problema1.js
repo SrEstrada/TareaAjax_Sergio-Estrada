@@ -40,8 +40,42 @@ document.getElementById('generar').addEventListener('click', () => {
         });
   
         console.log("Totales por tipo de caso:", totales);
-  
-        // Siguiente paso: graficar con estos totales
+        const ctxConfirmed = document.getElementById('grafico-confirmed').getContext('2d');
+
+        // Destruimos gráfico anterior si existe (por si se vuelve a generar)
+        if (window.graficoConfirmed) {
+          window.graficoConfirmed.destroy();
+        }
+        
+        // Creamos gráfico
+        window.graficoConfirmed = new Chart(ctxConfirmed, {
+          type: 'bar',
+          data: {
+            labels: Object.keys(totales.confirmed),
+            datasets: [{
+              label: 'Confirmados',
+              data: Object.values(totales.confirmed),
+              backgroundColor: 'rgba(255, 99, 132, 0.6)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false },
+              title: {
+                display: true,
+                text: 'Casos Confirmados por Región'
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
       })
       .catch(error => {
         console.error('Error al cargar data.json:', error);
