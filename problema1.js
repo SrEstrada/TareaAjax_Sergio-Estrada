@@ -15,9 +15,33 @@ document.getElementById('generar').addEventListener('click', () => {
       .then(response => response.json())
       .then(data => {
         const regionesFiltradas = data.filter(region => regionesSeleccionadas.includes(region.region));
-        console.log("Regiones filtradas:", regionesFiltradas);
   
-        // Aún no sumamos ni graficamos, ese es el próximo paso
+        // Inicializamos objetos para cada tipo de caso
+        const totales = {
+          confirmed: {},
+          recover: {},
+          death: {},
+          hospital: {},
+          hospitalUci: {},
+          noHospital: {}
+        };
+  
+        regionesFiltradas.forEach(region => {
+          const nombreRegion = region.region;
+  
+          // Para cada tipo de caso, sumamos los valores si existen
+          Object.keys(totales).forEach(tipo => {
+            const registros = Array.isArray(region[tipo]) ? region[tipo] : [];
+            const total = registros.reduce((suma, entrada) => {
+              return suma + parseInt(entrada.value);
+            }, 0);
+            totales[tipo][nombreRegion] = total;
+          });
+        });
+  
+        console.log("Totales por tipo de caso:", totales);
+  
+        // Siguiente paso: graficar con estos totales
       })
       .catch(error => {
         console.error('Error al cargar data.json:', error);
