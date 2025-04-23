@@ -9,38 +9,37 @@
 <body>
   <h1>Comparación de Casos COVID por Región</h1>
 
-  <label for="regiones">Selecciona regiones a comparar:</label><br>
-  <select id="regiones" multiple size="10">
-    <option value="Amazonas">Amazonas</option>
-    <option value="Ancash">Ancash</option>
-    <option value="Apurimac">Apurímac</option>
-    <option value="Arequipa">Arequipa</option>
-    <option value="Ayacucho">Ayacucho</option>
-    <option value="Cajamarca">Cajamarca</option>
-    <option value="Callao">Callao</option>
-    <option value="Cusco">Cusco</option>
-    <option value="Huancavelica">Huancavelica</option>
-    <option value="Huanuco">Huánuco</option>
-    <option value="Ica">Ica</option>
-    <option value="Junin">Junín</option>
-    <option value="La Libertad">La Libertad</option>
-    <option value="Lambayeque">Lambayeque</option>
-    <option value="Lima">Lima</option>
-    <option value="Loreto">Loreto</option>
-    <option value="Madre de Dios">Madre de Dios</option>
-    <option value="Moquegua">Moquegua</option>
-    <option value="Pasco">Pasco</option>
-    <option value="Piura">Piura</option>
-    <option value="Puno">Puno</option>
-    <option value="San Martin">San Martín</option>
-    <option value="Tacna">Tacna</option>
-    <option value="Tumbes">Tumbes</option>
-    <option value="Ucayali">Ucayali</option>
-  </select>
+  <p>Selecciona las regiones que deseas comparar:</p>
+  <div id="checkbox-regiones">
+    <label><input type="checkbox" value="Amazonas"> Amazonas</label><br>
+    <label><input type="checkbox" value="Ancash"> Ancash</label><br>
+    <label><input type="checkbox" value="Apurimac"> Apurímac</label><br>
+    <label><input type="checkbox" value="Arequipa"> Arequipa</label><br>
+    <label><input type="checkbox" value="Ayacucho"> Ayacucho</label><br>
+    <label><input type="checkbox" value="Cajamarca"> Cajamarca</label><br>
+    <label><input type="checkbox" value="Callao"> Callao</label><br>
+    <label><input type="checkbox" value="Cusco"> Cusco</label><br>
+    <label><input type="checkbox" value="Huancavelica"> Huancavelica</label><br>
+    <label><input type="checkbox" value="Huanuco"> Huánuco</label><br>
+    <label><input type="checkbox" value="Ica"> Ica</label><br>
+    <label><input type="checkbox" value="Junin"> Junín</label><br>
+    <label><input type="checkbox" value="La Libertad"> La Libertad</label><br>
+    <label><input type="checkbox" value="Lambayeque"> Lambayeque</label><br>
+    <label><input type="checkbox" value="Lima"> Lima</label><br>
+    <label><input type="checkbox" value="Loreto"> Loreto</label><br>
+    <label><input type="checkbox" value="Madre de Dios"> Madre de Dios</label><br>
+    <label><input type="checkbox" value="Moquegua"> Moquegua</label><br>
+    <label><input type="checkbox" value="Pasco"> Pasco</label><br>
+    <label><input type="checkbox" value="Piura"> Piura</label><br>
+    <label><input type="checkbox" value="Puno"> Puno</label><br>
+    <label><input type="checkbox" value="San Martin"> San Martín</label><br>
+    <label><input type="checkbox" value="Tacna"> Tacna</label><br>
+    <label><input type="checkbox" value="Tumbes"> Tumbes</label><br>
+    <label><input type="checkbox" value="Ucayali"> Ucayali</label><br>
+  </div>
 
-  <br><br>
+  <br>
   <button id="generar">Generar gráficos</button>
-  <br><br>
 
   <div class="graficos">
     <h3>Confirmados</h3>
